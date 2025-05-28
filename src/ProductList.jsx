@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './ProductList.css';
 import CartItem from './CartItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem } from './CartSlice'; // adjust path if needed
+import { addItem } from './CartSlice'; // adjust the path if needed
 
 function ProductList({ onHomeClick }) {
   const [showCart, setShowCart] = useState(false);
@@ -10,7 +10,7 @@ function ProductList({ onHomeClick }) {
   const dispatch = useDispatch();
 
   const cartItems = useSelector((state) => state.cart.items);
-  const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   const handleHomeClick = (e) => {
     e.preventDefault();
@@ -85,36 +85,17 @@ function ProductList({ onHomeClick }) {
         </div>
         <div className="ul">
           <div><a href="#" onClick={(e) => setShowCart(false)}>Plants</a></div>
-          <div>
-            <a href="#" onClick={handleCartClick}>
-              <h1 className="cart" style={{ position: 'relative' }}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" height="68" width="68">
-                  <circle cx="80" cy="216" r="12" />
-                  <circle cx="184" cy="216" r="12" />
-                  <path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8"
-                    fill="none" stroke="#faf9f9" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
-                </svg>
-                {totalQuantity > 0 && (
-                  <span style={{
-                    position: 'absolute',
-                    top: '-8px',
-                    right: '-8px',
-                    background: 'red',
-                    color: 'white',
-                    borderRadius: '50%',
-                    width: '25px',
-                    height: '25px',
-                    fontSize: '14px',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                  }}>
-                    {totalQuantity}
-                  </span>
-                )}
-              </h1>
-            </a>
-          </div>
+          <div><a href="#" onClick={handleCartClick}>
+            <h1 className="cart">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" height="68" width="68">
+                <circle cx="80" cy="216" r="12" />
+                <circle cx="184" cy="216" r="12" />
+                <path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8"
+                  fill="none" stroke="#faf9f9" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+              </svg>
+              <span style={{ fontSize: '18px', marginLeft: '10px' }}>({totalQuantity})</span>
+            </h1>
+          </a></div>
         </div>
       </div>
 
