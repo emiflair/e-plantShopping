@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import './ProductList.css';
 import CartItem from './CartItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem } from './CartSlice'; // adjust the path if needed
+import { addItem, selectCartItems, selectCartTotalQuantity } from './CartSlice';
 
 function ProductList({ onHomeClick }) {
   const [showCart, setShowCart] = useState(false);
   const [addedToCart, setAddedToCart] = useState({});
   const dispatch = useDispatch();
 
-  const cartItems = useSelector((state) => state.cart.items);
-  const totalQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const cartItems = useSelector(selectCartItems);
+  const totalQuantity = useSelector(selectCartTotalQuantity);
 
   const handleHomeClick = (e) => {
     e.preventDefault();
@@ -22,8 +22,7 @@ function ProductList({ onHomeClick }) {
     setShowCart(true);
   };
 
-  const handleContinueShopping = (e) => {
-    e.preventDefault();
+  const handleContinueShopping = () => {
     setShowCart(false);
   };
 
@@ -84,7 +83,7 @@ function ProductList({ onHomeClick }) {
           </div>
         </div>
         <div className="ul">
-          <div><a href="#" onClick={(e) => setShowCart(false)}>Plants</a></div>
+          <div><a href="#" onClick={() => setShowCart(false)}>Plants</a></div>
           <div><a href="#" onClick={handleCartClick}>
             <h1 className="cart">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" height="68" width="68">

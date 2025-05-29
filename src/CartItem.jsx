@@ -1,20 +1,18 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, updateQuantity, clearCart } from './CartSlice';
+import {
+  removeItem,
+  updateQuantity,
+  clearCart,
+  selectCartItems,
+  selectCartTotalPrice
+} from './CartSlice';
 import './CartItem.css';
 
 const CartItem = ({ onContinueShopping }) => {
-  const cart = useSelector((state) => state.cart.items);
+  const cart = useSelector(selectCartItems);
+  const totalPrice = useSelector(selectCartTotalPrice);
   const dispatch = useDispatch();
-
-  const calculateTotalAmount = () => {
-    return cart
-      .reduce((total, item) => {
-        const price = parseFloat(item.cost.replace('$', ''));
-        return total + price * item.quantity;
-      }, 0)
-      .toFixed(2);
-  };
 
   const calculateTotalCost = (item) => {
     const price = parseFloat(item.cost.replace('$', ''));
@@ -49,7 +47,7 @@ const CartItem = ({ onContinueShopping }) => {
 
   return (
     <div className="cart-container">
-      <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
+      <h2 style={{ color: 'black' }}>Total Cart Amount: ${totalPrice}</h2>
 
       {cart.length === 0 ? (
         <p style={{ color: 'black' }}>Your cart is empty.</p>
