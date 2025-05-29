@@ -1,3 +1,4 @@
+// ProductList.jsx (Updated with fixed layout)
 import React, { useState } from "react";
 import "./ProductList.css";
 import CartItem from "./CartItem";
@@ -75,60 +76,43 @@ function ProductList({ onHomeClick }) {
   return (
     <div>
       <div className="navbar">
-        <div className="tag">
-          <div className="luxury">
-            <img
-              src="/f56afda0-1fdf-4e53-9227-346fc2aa6c68.png"
-              alt="Green Haven Logo"
-              style={{
-                height: "70px",
-                width: "70px",
-                borderRadius: "50%",
-                marginRight: "15px",
-              }}
-            />
-            <a href="/" onClick={handleHomeClick}>
-              <div>
-                <h2 style={{ color: "white", margin: 0 }}>Green Haven</h2>
-                <i
-                  style={{ color: "white", fontSize: "20px", lineHeight: 1.2 }}
-                >
-                  Nature in Every Corner
-                </i>
-              </div>
-            </a>
-          </div>
+        <div className="nav-left">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2608/2608946.png"
+            alt="Logo"
+            className="logo"
+          />
+          <a href="/" onClick={handleHomeClick} className="brand">
+            <h2>Green Haven</h2>
+            <i>Nature in Every Corner</i>
+          </a>
         </div>
-        <div className="ul">
-          <div>
-            <a href="#" onClick={() => setShowCart(false)}>
-              Plants
-            </a>
-          </div>
-          <div>
-            <a href="#" onClick={handleCartClick}>
-              <div className="cart">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 256 256"
-                  height="68"
-                  width="68"
-                >
-                  <circle cx="80" cy="216" r="12" />
-                  <circle cx="184" cy="216" r="12" />
-                  <path
-                    d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8"
-                    fill="none"
-                    stroke="#faf9f9"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                  />
-                </svg>
-                <span className="cart-quantity">{totalQuantity}</span>
-              </div>
-            </a>
-          </div>
+        <div className="nav-center">
+          <h3 className="page-title">Plants</h3>
+        </div>
+        <div className="nav-right">
+          <a href="#" onClick={handleCartClick}>
+            <div className="cart">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 256 256"
+                height="48"
+                width="48"
+              >
+                <circle cx="80" cy="216" r="12" />
+                <circle cx="184" cy="216" r="12" />
+                <path
+                  d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8"
+                  fill="none"
+                  stroke="#ffffff"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                />
+              </svg>
+              <span className="cart-quantity">{totalQuantity}</span>
+            </div>
+          </a>
         </div>
       </div>
 

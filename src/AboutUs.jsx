@@ -1,30 +1,23 @@
-import React from 'react';
-import './AboutUs.css';
+// AboutUs.jsx (Updated with flower shop-aligned welcome text)
+import React from "react";
+import "./AboutUs.css";
 
 function AboutUs() {
   return (
-    <div className="about-us-container">
-      {/* <h1 className="about-us-heading">About Us</h1> */}
-      <p className="about-us-description">Welcome to Paradise Nursery, where green meets serenity!</p>
-      <p className="about-us-content">
-        At Paradise Nursery, we are passionate about bringing nature closer to you. Our mission is to provide a wide range of 
-        high-quality plants that not only enhance the beauty of your surroundings but also contribute to a healthier and 
-        more sustainable lifestyle. From air-purifying plants to aromatic fragrant ones, we have something for every 
-        plant enthusiast.
-      </p>
-      {/* <p className="plant_logo_left"><img src="https://p1.hiclipart.com/preview/922/979/640/green-leaf-logo-emoji-seedling-emoticon-sticker-plant-plant-stem-flower-png-clipart-thumbnail.jpg" height='50px' width='50px' alt="" /></p> */}
-      <p className="about-us-content">
-        Our team of experts is dedicated to ensuring that each plant meets our strict standards of quality and care. 
-        Whether you're a seasoned gardener or just starting your green journey, we're here to support you every step of 
-        the way. Feel free to explore our collection, ask questions, and let us help you find the perfect plant for your 
-        home or office.
-      </p>
-      {/* <p className="plant_logo_right"><img src="https://p1.hiclipart.com/preview/922/979/640/green-leaf-logo-emoji-seedling-emoticon-sticker-plant-plant-stem-flower-png-clipart-thumbnail.jpg" height='50px' width='50px' alt="" /></p> */}
-
-      <p className="about-us-content">
-        Join us in our mission to create a greener, healthier world. Visit Paradise Nursery today and experience the 
-        beauty of nature right at your doorstep.
-      </p>
+    <div className="about">
+      <div className="background-image"></div>
+      <div className="about-text">
+        <h1>Welcome to Green Haven — Your Blooming Escape!</h1>
+        <p>
+          Step into a world of color, fragrance, and natural joy. At Green Haven, we specialize in bringing beauty to life through our handpicked collection of fresh flowers and ornamental plants. Whether you’re looking to brighten your home, celebrate a special occasion, or start your own garden journey, we have blooms for every mood and moment.
+        </p>
+        <p>
+          From vibrant bouquets to elegant potted plants, our flower shop is rooted in quality, care, and creativity. Each arrangement is crafted to inspire smiles and serenity, whether it’s a gift or a treat for yourself.
+        </p>
+        <p>
+          Let nature take root in your life — explore Green Haven and let every petal tell your story.
+        </p>
+      </div>
     </div>
   );
 }
